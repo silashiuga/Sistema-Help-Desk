@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Sitema Help Desk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/page.css">
+    <script src="../scripts/ticketAdminList.js" type="module"></script>
+  </head>
+
+  <body>
+
+    <nav class="menu">
+      <p class="brand">Suport System</p>
+      <ul>
+        <ul id="adminMenu" class="ativo">
+          <li><a class="items-menu" href="../pages/ticketAdminList.html">Tickets</a></li>
+          <li><a class="items-menu" href="../pages/category.html">Categorias</a></li>
+          <li><a class="items-menu" href="../pages/adminList.html?user=admin">Administradores</a></li>
+          <li><a class="items-menu" href="../pages/supportList.html?user=suporte">Suportes</a></li>
+          <li><a class="items-menu" href="../pages/clientList.html?user=cliente">Clientes</a></li>
+          <li><a class="items-menu logout-admin" href="#">Sair</a></li>
+        </ul>
+      </ul>
+    </nav>
+    <div class="message-container">
+     
+    </div>
+    <section class="container-add">
+      <div>
+        <h1 class="title-page">Tickets</h1>
+      </div>
+    </section>
+
+    <section class="list-container">
+      <h3 class="title-list">Lista Tickets</h3>
+      <section class="filter-list">
+        <form>
+          <div>
+            <p class="filter-title">CATEGORIAS</p>
+            <div id="selectCategory"></div>
+          </div>
+          <div>
+            <p class="filter-title">DATA CRIAÇÃO</p>
+            <select id="filter-date" class="filter">
+              <option value="DESC" autofocus="true">RECENTE</option> 
+              <option value="ASC">ANTIGO</option>
+            </select>
+          </div>
+
+          <div>
+            <p class="filter-title">ESTADOS</p>
+            <select id="filter-status" class="filter">
+              <option value="0" selected>TODOS</option>
+              <option value="1">ABERTO</option>
+              <option value="2">ANDAMENTO</option>
+              <option value="3">CONCLUÍDO</option>
+              <option value="4">FECHADO</option>
+            </select>
+          </div>
+
+          <div>
+            <p class="filter-title">GRAVIDADE</p>
+            <select id="filter-severity" class="filter">
+              <option value="0" selected >TODOS</option>
+              <option value="1" >BAIXO</option>
+              <option value="2">MÉDIO</option>
+              <option value="3">ALTO</option>
+            </select>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <section id="table-container"></section>
+  </body>
+</html>

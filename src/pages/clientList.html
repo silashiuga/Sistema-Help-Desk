@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Projeto Vendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/page.css">
+    <script src="../scripts/clientList.js" type="module"></script>
+  </head>
+
+  <body >
+
+    <nav class="menu">
+      <p class="brand">Suport System</p>
+      <ul id="adminMenu" class="ativo">
+        <li><a class="items-menu" href="../pages/ticketAdminList.html">Tickets</a></li>
+        <li><a class="items-menu" href="../pages/category.html">Categorias</a></li>
+        <li><a class="items-menu" href="../pages/adminList.html?user=admin">Administradores</a></li>
+        <li><a class="items-menu" href="../pages/supportList.html?user=suporte">Suportes</a></li>
+        <li><a class="items-menu" href="../pages/clientList.html?user=cliente">Clientes</a></li>
+        <li><a class="items-menu logout-admin" href="#">Sair</a></li>
+      </ul>
+
+      <ul id="supportMenu" >
+        <li><a class="items-menu" href="./ticketSupportList.html">Tickets</a></li>
+        <li><a class="items-menu" href="./category.html">Categorias</a></li>
+        <li><a class="items-menu" href="./clientList.html?user=cliente">Clientes</a></li>
+        <li><a class="items-menu" href="./userFormHandledBySupport.html?action=edit-mySelf&user=suporte">Conta</a></li>
+        <li><a class="items-menu logout-support" href="#">Sair</a></li>
+      </ul>
+
+      <ul id="clientMenu" >
+        <li><a class="items-menu" href="../Pages/admin.html">Tickets</a></li>
+        <li><a class="items-menu" href="../Pages/seller.html">Conta</a></li>
+        <li><a class="items-menu logout" href="#">Sair</a></li>
+      </ul>
+    </nav>
+
+    <div class="message-container">
+     
+    </div>
+    <section class="container-add">
+      <div>
+        <h1 class="title-page">Clientes</h1>
+      </div>
+      <a  class="add-btn">ADICIONAR</a>
+    </section>
+     
+    <section class="list-container">
+      <h3 class="title-list">Lista de clientes</h3>
+      
+    </section>
+
+    <section id="table-container"></section>
+  </body>
+</html>

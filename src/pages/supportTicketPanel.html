@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Projeto Vendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/ticketPanel.css">
+    <script src="../scripts/supportTicketPanel.js" type="module"></script>
+  </head>
+
+  <body >
+
+    <nav class="menu">
+      <p class="brand">Suport System</p>
+      <ul >
+        <li><a class="items-menu" href="./ticketSupportList.html">Tickets</a></li>
+        <li><a class="items-menu" href="./category.html">Categorias</a></li>
+        <li><a class="items-menu" href="./clientList.html?user=cliente">Clientes</a></li>
+        <li><a class="items-menu" href="./userFormHandledBySupport.html?action=edit-mySelf&user=suporte">Conta</a></li>
+        <li><a class="items-menu logout-support" href="#">Sair</a></li>
+      </ul>
+    </nav>
+
+    <div class="message-container">
+     
+    </div>
+    <section class="container">
+      <section class="container-title">
+        <div>
+          <h1 class="title-page">Chamado 01</h1>
+        </div>
+        <div class="container-btn-close">
+          <button class="btn-close">FECHAR CHAMADO</button>
+        </div>
+
+      </section>
+      <section class="container-info">
+        <div class="container-title-ticket">
+          <p class="title">TÍTULO</p>
+          <p class="title-ticket info">Site está travando</p>
+        </div>
+        
+        <div class="container-severity">
+          <p class="title">GRAVIDADE</p>
+          <select id="select-severity" class="select info">
+            <option value="1" >BAIXO</option>
+            <option value="2">MÉDIO</option>
+            <option value="3">ALTO</option>
+          </select>
+        </div>
+
+        <div class="container-date-created">
+          <p class="title">CRIAÇÃO</p>
+          <p class="date-created-ticket info">2024-09-03</p>
+        </div>
+
+        <div class="container-support">
+          <p class="title">SUPORTE</p>
+          <p class="support-ticket info">Márcio Toshiro</p>
+        </div>
+
+        <div class="container-description">
+          <p class="title">DESCRIÇÃO</p>
+          <p class="description-ticket info">Site está travando Site está travando Site está travando </p>
+        </div>
+
+
+        <div class="container-situation">
+          <p class="title">ESTADO</p>
+          <select id="select-status" class="info select">
+            <option value="1">ABERTO</option>
+            <option value="2">ANDAMENTO</option>
+            <option value="3">CONCLUÍDO</option>
+            <option value="4">FECHADO</option>
+          </select>
+        </div>
+
+        <div class="container-date-closed">
+          <p class="title">TERMINO</p>
+          <p class="date-closed-ticket info">2024-09-15</p>
+        </div>
+
+
+        <div class="container-category">
+          <p class="title">CATEGORIA</p>
+          <p class="category-ticket info">Lentidão e travamento</p>
+        </div>
+
+        <div class="container-client">
+          <p class="title">CLIENTE</p>
+          <p class="cliente-ticket info">Alfredo Gomes</p>
+        </div>
+        
+      </section>
+<!-- 
+      <section class="container-button">
+        <button class="btn-remove">REMOVER FUNCIONARIO</button>
+        <button class="btn-get-ticket">PEGAR TICKET</button>
+      </section> -->
+
+      <section class="container-button">
+        <button class="btn-get-ticket">PEGAR TICKET</button>
+      </section>
+      <hr>
+      <section class="container-conversation">
+        <section class="container-ticket-message">
+          <form>
+            <p class="title-message">
+              Adicionar comentário
+            </p>
+            <textarea name="description" rows="10" id="descriptionInput" class="input-message"> </textarea>
+            <button class="send-message">ENVIAR</button>
+          </form>
+        </section>
+
+        <section class="container-message">
+          <p class="title-message">
+            Histórico de mensagens
+          </p>
+          <div class="container-message-history">
+
+          </div>
+
+          <!-- <div class="container-dialogue">
+            <div class="container-dialogue-title">Alfredo 2024/01/20</div>
+            <div class="container-dialogue-content">Quando entro no site vejo um problema de travamento</div>
+          </div>
+
+          <div class="container-dialogue"></div>
+            <div class="container-dialogue-title">Alfredo 2024/01/20</div>
+            <div class="container-dialogue-content">Quando entro no site vejo um problema de travamento entro no site vejo um problema de travamento entro no site vejo um problema de travamento</div>
+          </div> -->
+        </section>
+      </section>
+
+    </section>
+     
+  </body>
+</html>
