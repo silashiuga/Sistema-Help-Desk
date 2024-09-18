@@ -78,5 +78,5 @@ INSERT INTO gravidades (nome) VALUES ('médio');
 INSERT INTO gravidades (nome) VALUES ('alto');
 
 
-/*Inserindo o admin padrão*/
-INSERT INTO usuarios (nome, email, senha, telefone, situacao, tipo) VALUES ('Admin', 'admin@email.com', '5389', '(11) 9343653708', 1, 'admin');
+/*Inserindo o admin padrão com o email admin@email.com senha 5389*/
+INSERT INTO usuarios (nome, email, senha, telefone, situacao, tipo) VALUES ('Admin', 'admin@email.com', '$2a$10$QGXiAckovEYPd0OT6lSXeuASI8PWtK6amFAGDDRUkJky3fzWbHAk.', '(11) 9343653708', 1, 'admin');
