@@ -10,7 +10,7 @@ const categoryRouter = require('./routes/categoryRouter.js');
 const ticketRouter = require('./routes/ticketRouter.js');
 
 const options = {
-  origin:'http://127.0.0.1:5501'
+  origin:'http://127.0.0.1:5500'
 }
 
 app.use(cors(options));
