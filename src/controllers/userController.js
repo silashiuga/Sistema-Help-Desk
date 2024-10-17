@@ -5,9 +5,10 @@ class UserController {
 
   async login(req, res){
     const {body} = req;
- 
+    console.log("veio")
     try{
       const userService = new UserService();
+      console.log(body)
       const result = await userService.login(body);
 
       const id = result[0].codigo;
@@ -15,7 +16,7 @@ class UserController {
 
       const token = jwt.sign({id:id, type: userType}, process.env.TOKEN_SECRET);
       result[0].authorization = token;
-      
+      console.log(result)
       return res.json(result);
 
     } catch(error){

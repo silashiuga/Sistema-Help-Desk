@@ -22,7 +22,7 @@ class TicketService {
     return ticketCreated;
   }
 
-  async findById(id){
+  async findById(id, idClient, type){
 
     const ticketValidation = new TicketValidation();
     const idValidate = ticketValidation.checkId(id);
@@ -32,6 +32,11 @@ class TicketService {
     }
    
     const ticketFound = await this.ticketRepository.findById(id);
+    if(type === 'cliente'){
+      if(idClient !== ticketFound[0].cliente_codigo){
+        throw new Error('Cliente não autorizado');
+      }
+    }
     return ticketFound;
   }
 
@@ -66,7 +71,7 @@ class TicketService {
     }
    
     const ticketFound = await this.ticketRepository.findByClient(id);
-    console.log(id)
+    
     return ticketFound;
   }
 
@@ -81,6 +86,8 @@ class TicketService {
     // user_id
     // data
     // conteudo
+    console.log("create message");
+    
     const ticketValidation = new TicketValidation();
     const idValidate = ticketValidation.checkId(data.user_id);
     const dateValidate = ticketValidation.checkDateCreate(data.date_created);
@@ -94,7 +101,7 @@ class TicketService {
     const ticketFound = await this.ticketRepository.findById(data.ticket_id);
 
     if(ticketFound.length > 0){
-      console.log('tipo')
+      console.log(ticketFound[0])
       console.log(data.type)
       if(ticketFound[0].estado === 'concluído' || ticketFound[0].estado === 'fechado'){
         throw new Error('Ticket não pode ser alterado, por estar finalizado');
@@ -104,7 +111,7 @@ class TicketService {
         throw new Error('Apenas o usuário logado pode mandar está mensagem');
       }
 
-      if( data.type == 'client' ){
+      if( data.type == 'cliente' ){
         if(ticketFound[0].cliente_codigo != data.user_id){
           throw new Error('Cliente não corresponde ao ticket');
         }
@@ -157,7 +164,7 @@ class TicketService {
     return ticketFound;
   }
 
-  async listMessage(id){
+  async listMessage(id, idClient, type){
 
     const ticketValidation = new TicketValidation();
     const idValidate = ticketValidation.checkId(id);
@@ -165,15 +172,24 @@ class TicketService {
     if(!idValidate){
       throw new Error('Código de ticket inválido');
     }
+    const ticketFound = await this.ticketRepository.findById(id)
+    const messageFound = await this.ticketRepository.listMessage(id);
+    if(ticketFound.length > 0){
+      console.log(ticketFound[0].cliente_codigo == idClient)
+      if(type === 'cliente'){
+        if(idClient !== ticketFound[0].cliente_codigo){
+          throw new Error('Acesso negado');
+        }
+      }
+    }
    
-    const ticketFound = await this.ticketRepository.listMessage(id);
-    return ticketFound;
+    return messageFound;
   }
 
   async closeTicket(data, userInactive=false){
     const ticketValidation = new TicketValidation();
     const dataValidate = ticketValidation.checkId(data.id);
-    console.log('veio2')
+
     if(!dataValidate){
       throw new Error('Dado inválido');
     }
@@ -207,7 +223,7 @@ class TicketService {
 
     if(data.action === 'remove'){
       const employeeValidate = ticketValidation.checkId(data.support_id);
-      console.log(data)
+   
       if(!employeeValidate){
         throw new Error('Não foi encontrado suporte');
       }
@@ -224,7 +240,7 @@ class TicketService {
     }
 
     else if(data.action === 'add'){
-      console.log(data)
+
 
       if(checkTicket[0].suporte){
         throw new Error('Não é possível adicionar pois já tem alguém responsável pelo ticket');
@@ -281,7 +297,7 @@ class TicketService {
     }
 
     const ticketFound = await this.ticketRepository.findById(data.ticket_id);
- 
+    
     if(ticketFound.length > 0){
       if(ticketFound[0].estado === 'concluído' || ticketFound[0].estado === 'fechado' ){
         throw new Error('Ticket não pode ser alterado, por estar finalizado');

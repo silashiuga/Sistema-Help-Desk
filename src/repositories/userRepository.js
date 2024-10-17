@@ -4,6 +4,7 @@ class UserRepository {
   con = require('../../connection.js');
 
   async findByEmail(email){
+    console.log('consulta')
     const query = `SELECT * FROM usuarios WHERE email = '${email}'`;
     return new Promise((resolve,reject) =>{
       this.con.query(query, (error, result) => {

@@ -94,8 +94,9 @@ class TicketController {
   async findById(req, res){
 
     try{
+
       const ticketService = new TicketService();
-      const result = await ticketService.findById(req.query.id);
+      const result = await ticketService.findById(req.query.id, req.user.id, req.user.type);
 
       return res.json(result);
     } catch(error){
@@ -152,8 +153,9 @@ class TicketController {
   async listMessage(req, res){
 
     try{
+      console.log(req.user)
       const ticketService = new TicketService();
-      const result = await ticketService.listMessage(req.query.ticket_id);
+      const result = await ticketService.listMessage(req.query.ticket_id, req.user.id, req.user.type);
 
       return res.json(result);
     } catch(error){

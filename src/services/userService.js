@@ -90,6 +90,7 @@ class UserService {
     }
 
     const user = await this.userRepository.findByEmail(data.email);
+    console.log(user)
     if(user.length === 0){
       throw new Error('Email ou senha incorreto.');
     }
